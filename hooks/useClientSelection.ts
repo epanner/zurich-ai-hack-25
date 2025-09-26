@@ -1,11 +1,21 @@
 "use client"
 
-import { useState } from "react"
-import { clients } from "@/data/clients"
+import { useState, useEffect } from "react"
+import { useClients } from "./useClients"
+import type { Client } from "@/types/client"
 
 export function useClientSelection() {
-  const [selectedClientId, setSelectedClientId] = useState("1")
+  const [selectedClientId, setSelectedClientId] = useState<string>("")
   const [clientSearchQuery, setClientSearchQuery] = useState("")
+  
+  const { clients, loading, error } = useClients()
+
+  // Set the first client as selected when clients are loaded
+  useEffect(() => {
+    if (clients.length > 0 && !selectedClientId) {
+      setSelectedClientId(clients[0].id)
+    }
+  }, [clients, selectedClientId])
 
   const clientData = clients.find((client) => client.id === selectedClientId) || clients[0]
 
@@ -31,5 +41,7 @@ export function useClientSelection() {
     filteredClients,
     handleClientChange,
     setClientSearchQuery,
+    loading,
+    error,
   }
 }

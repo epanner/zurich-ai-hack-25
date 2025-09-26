@@ -294,7 +294,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                         className="flex items-start gap-3 p-3 rounded-md bg-slate-800 hover:bg-slate-700 cursor-pointer transition-colors"
                         onClick={() => {
                           onActionClick(
-                            `Prepare materials for ${client.name}'s upcoming ${client.upcomingEvents[0].title} on ${client.upcomingEvents[0].date}`,
+                            `Prepare materials for ${client.name}'s upcoming ${client.upcomingEvents?.[0]?.title || 'meeting'} on ${client.upcomingEvents?.[0]?.date || 'TBD'}`,
                           )
                           onClose()
                         }}
@@ -304,10 +304,10 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                         </div>
                         <div className="flex-1">
                           <p className="text-base font-medium text-white">
-                            {client.upcomingEvents[0].title} Preparation
+                            {client.upcomingEvents?.[0]?.title || 'Meeting'} Preparation
                           </p>
                           <p className="text-sm text-slate-400 mt-1">
-                            Upcoming meeting on {client.upcomingEvents[0].date}. Prepare performance reports, portfolio
+                            Upcoming meeting on {client.upcomingEvents?.[0]?.date || 'TBD'}. Prepare performance reports, portfolio
                             analysis, and discussion materials. Based on previous interactions, client will likely want
                             to discuss retirement planning progress and tax strategies.
                           </p>

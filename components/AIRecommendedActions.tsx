@@ -93,7 +93,7 @@ export function AIRecommendedActions({
                 className="flex items-start gap-3 p-2 rounded-md bg-slate-50 hover:bg-slate-100 cursor-pointer transition-colors"
                 onClick={() =>
                   onActionClick(
-                    `Prepare materials for ${client.name}'s upcoming ${client.upcomingEvents[0].title} on ${client.upcomingEvents[0].date}`,
+                    `Prepare materials for ${client.name}'s upcoming ${client.upcomingEvents?.[0]?.title || 'meeting'} on ${client.upcomingEvents?.[0]?.date || 'TBD'}`,
                   )
                 }
               >
@@ -103,7 +103,7 @@ export function AIRecommendedActions({
                 <div className="flex-1">
                   <p className="text-sm font-medium text-slate-900">Meeting Preparation</p>
                   <p className="text-xs text-slate-500">
-                    {client.upcomingEvents[0].title} on {client.upcomingEvents[0].date}
+                    {client.upcomingEvents?.[0]?.title || 'Meeting'} on {client.upcomingEvents?.[0]?.date || 'TBD'}
                   </p>
                 </div>
               </li>

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import {
+  AlertCircle,
   Calendar,
   DollarSign,
   FileText,
@@ -57,7 +58,7 @@ export default function UBSDialogueIQDashboard() {
   const [enlargedBox, setEnlargedBox] = useState<string | null>(null)
   const [selectedConversationId, setSelectedConversationId] = useState<string | null>(null)
 
-  const { selectedClientId, clientData, clientSearchQuery, filteredClients, handleClientChange, setClientSearchQuery } =
+  const { selectedClientId, clientData, clientSearchQuery, filteredClients, handleClientChange, setClientSearchQuery, loading: clientsLoading, error: clientsError } =
     useClientSelection()
 
   const {
@@ -159,6 +160,59 @@ export default function UBSDialogueIQDashboard() {
       default:
         return <MessageSquare className="h-4 w-4" />
     }
+  }
+
+  // Show loading state
+  if (clientsLoading) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-background">
+        <div className="flex flex-col items-center gap-4">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-slate-300 border-t-slate-600"></div>
+          <p className="text-slate-600">Loading client data...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Show error state
+  if (clientsError) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-background">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <div className="rounded-full bg-red-100 p-3">
+            <AlertCircle className="h-6 w-6 text-red-600" />
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900">Error loading data</h3>
+            <p className="text-slate-600">{clientsError}</p>
+          </div>
+          <Button 
+            onClick={() => window.location.reload()} 
+            variant="outline"
+            className="mt-2"
+          >
+            Try Again
+          </Button>
+        </div>
+      </div>
+    )
+  }
+
+  // Show empty state if no clients
+  if (!clientData) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-background">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <div className="rounded-full bg-slate-100 p-3">
+            <Users className="h-6 w-6 text-slate-600" />
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900">No clients found</h3>
+            <p className="text-slate-600">Please add some clients to get started.</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (

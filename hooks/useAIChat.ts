@@ -5,7 +5,7 @@ import type { Message } from "@/types/message"
 import type { Client } from "@/types/client"
 import { marketData } from "@/data/market"
 
-export function useAIChat(clientData: Client) {
+export function useAIChat(clientData: Client | undefined) {
   const [messages, setMessages] = useState<Message[]>([])
   const [inputValue, setInputValue] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -18,7 +18,7 @@ export function useAIChat(clientData: Client) {
 
   // Initialize AI chat with welcome message
   useEffect(() => {
-    if (showAIChat && messages.length === 0) {
+    if (showAIChat && messages.length === 0 && clientData) {
       setMessages([
         {
           id: "welcome",
@@ -28,7 +28,7 @@ export function useAIChat(clientData: Client) {
         },
       ])
     }
-  }, [showAIChat, clientData.name, messages.length])
+  }, [showAIChat, clientData?.name, messages.length, clientData])
 
   // Scroll to bottom of messages
   useEffect(() => {
@@ -42,6 +42,7 @@ export function useAIChat(clientData: Client) {
 
   // Reset chat messages
   const resetChat = () => {
+    if (!clientData) return
     setMessages([
       {
         id: "welcome",
@@ -51,6 +52,28 @@ export function useAIChat(clientData: Client) {
       },
     ])
     resetPresetSelection()
+  }
+
+  // Early return if no client data
+  if (!clientData) {
+    return {
+      messages: [],
+      inputValue: "",
+      isLoading: false,
+      showAIChat: false,
+      messagesEndRef,
+      selectedMainPreset: null,
+      showRefinedPresets: false,
+      setInputValue,
+      toggleAIChat,
+      handleSubmitMessage: () => {},
+      handleActionButtonClick: () => {},
+      handleActionClick: () => {},
+      handleMainPresetSelect: () => {},
+      handleRefinedPresetSelect: () => {},
+      resetPresetSelection: () => {},
+      resetChat,
+    }
   }
 
   // Handle message submission
@@ -244,9 +267,9 @@ export function useAIChat(clientData: Client) {
 - Cash: ${clientData.portfolio.cash}%
 
 ## Priority Actions
-1. ${clientData.opportunities[0]}
+1. ${clientData.opportunities?.[0] || 'Portfolio optimization'}
 2. Portfolio rebalancing needed (tech sector overweight by 7%)
-3. Next meeting scheduled for ${clientData.upcomingEvents[0].date} (${clientData.upcomingEvents[0].title})
+3. Next meeting scheduled for ${clientData.upcomingEvents?.[0]?.date || 'TBD'} (${clientData.upcomingEvents?.[0]?.title || 'No upcoming events'})
 
 Would you like me to elaborate on any specific aspect of this overview?`,
             timestamp: new Date(),
@@ -320,7 +343,7 @@ Would you like me to generate a detailed report for any of these sections?`,
 
 ## Short-Term Actions (8-30 Days)
 1. **Client Meeting Preparation**
- - Prepare for ${clientData.upcomingEvents[0].title} on ${clientData.upcomingEvents[0].date}
+ - Prepare for ${clientData.upcomingEvents?.[0]?.title || 'upcoming meeting'} on ${clientData.upcomingEvents?.[0]?.date || 'TBD'}
  - Generate retirement projection scenarios
  - Update risk tolerance assessment
 
