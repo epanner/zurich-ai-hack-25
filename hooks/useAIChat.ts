@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react"
 import type { Message } from "@/types/message"
 import type { Client } from "@/types/client"
-import { marketData } from "@/data/market"
 
 export function useAIChat(clientData: Client | undefined) {
   const [messages, setMessages] = useState<Message[]>([])

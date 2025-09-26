@@ -84,31 +84,6 @@ export default function UBSDialogueIQDashboard() {
     setEnlargedBox(enlargedBox === boxId ? null : boxId)
   }
 
-  const marketData = {
-    indices: {
-      sp500: {
-        value: "4,500",
-        change: 0.5,
-        status: "up",
-      },
-      nasdaq: {
-        value: "14,000",
-        change: 0.8,
-        status: "up",
-      },
-      dowJones: {
-        value: "34,500",
-        change: -0.2,
-        status: "down",
-      },
-      russell2000: {
-        value: "2,000",
-        change: 0.3,
-        status: "up",
-      },
-    },
-  }
-
   // Add state for meeting scheduler
   const [showMeetingScheduler, setShowMeetingScheduler] = useState(false)
 
