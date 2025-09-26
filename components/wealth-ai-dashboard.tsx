@@ -5,7 +5,6 @@ import {
   Calendar,
   DollarSign,
   FileText,
-  LineChart,
   Menu,
   PieChart,
   Settings,
@@ -175,7 +174,6 @@ export default function UBSDialogueIQDashboard() {
           <SheetContent side="left" className="w-72 bg-white text-slate-900">
             <nav className="grid gap-2 text-lg font-medium">
               <a href="#" className="flex items-center gap-2 text-lg font-semibold">
-                <LineChart className="h-6 w-6" />
                 <span className="font-bold">UBS DialogueIQ</span>
               </a>
               <Separator className="my-2 bg-slate-200" />
@@ -229,7 +227,6 @@ export default function UBSDialogueIQDashboard() {
           </SheetContent>
         </Sheet>
         <a href="#" className="flex items-center gap-2 md:ml-0">
-          <LineChart className="h-6 w-6 text-slate-900" />
           <span className="font-bold hidden md:inline-block text-slate-900">UBS DialogueIQ</span>
         </a>
 
