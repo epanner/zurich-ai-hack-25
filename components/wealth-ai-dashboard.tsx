@@ -52,7 +52,7 @@ import { format } from "date-fns"
 // Add import for MeetingScheduler component
 import { MeetingScheduler } from "@/components/MeetingScheduler"
 
-export default function FinanceProDashboard() {
+export default function UBSDialogueIQDashboard() {
   const isMobile = useIsMobile()
   const [activeTab, setActiveTab] = useState("insights")
   const [enlargedBox, setEnlargedBox] = useState<string | null>(null)
@@ -163,33 +163,23 @@ export default function FinanceProDashboard() {
   }
 
   return (
-    <div className="flex h-screen w-full flex-col bg-background dark">
-      <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-slate-900 px-4 md:px-6 dark:bg-slate-900 light:bg-white light:border-slate-200">
+    <div className="flex h-screen w-full flex-col bg-background">
+      <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-white px-4 md:px-6 border-slate-200">
         <Sheet>
           <SheetTrigger asChild>
-            <Button
-              variant="outline"
-              size="icon"
-              className="md:hidden dark:bg-slate-800 dark:border-slate-700 light:bg-white light:border-slate-200 bg-transparent"
-            >
-              <Menu className="h-5 w-5 dark:text-white light:text-slate-900" />
+            <Button variant="outline" size="icon" className="md:hidden bg-white border-slate-200 bg-transparent">
+              <Menu className="h-5 w-5 text-slate-900" />
               <span className="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent
-            side="left"
-            className="w-72 dark:bg-slate-900 dark:text-white light:bg-white light:text-slate-900"
-          >
+          <SheetContent side="left" className="w-72 bg-white text-slate-900">
             <nav className="grid gap-2 text-lg font-medium">
               <a href="#" className="flex items-center gap-2 text-lg font-semibold">
                 <LineChart className="h-6 w-6" />
-                <span className="font-bold">FinancePro</span>
+                <span className="font-bold">UBS DialogueIQ</span>
               </a>
-              <Separator className="my-2 dark:bg-slate-800 light:bg-slate-200" />
-              <a
-                href="#"
-                className="flex items-center gap-3 rounded-lg dark:bg-slate-800 light:bg-slate-100 px-3 py-2 text-primary"
-              >
+              <Separator className="my-2 bg-slate-200" />
+              <a href="#" className="flex items-center gap-3 rounded-lg bg-slate-100 px-3 py-2 text-primary">
                 <User className="h-5 w-5" />
                 Client Dashboard
               </a>
@@ -239,12 +229,12 @@ export default function FinanceProDashboard() {
           </SheetContent>
         </Sheet>
         <a href="#" className="flex items-center gap-2 md:ml-0">
-          <LineChart className="h-6 w-6 dark:text-white light:text-slate-900" />
-          <span className="font-bold hidden md:inline-block dark:text-white light:text-slate-900">FinancePro</span>
+          <LineChart className="h-6 w-6 text-slate-900" />
+          <span className="font-bold hidden md:inline-block text-slate-900">UBS DialogueIQ</span>
         </a>
 
         <div className="flex items-center mx-2">
-          <img src="/images/ubs-logo.jpg" alt="UBS" className="h-6" />
+          <img src="/images/ubs-logo.png" alt="UBS" className="h-6" />
         </div>
 
         {/* Full-width AI search bar */}
@@ -252,10 +242,10 @@ export default function FinanceProDashboard() {
           <div className="relative w-full cursor-pointer" onClick={toggleAIChat}>
             <div className="relative flex items-center">
               <div className="absolute left-3 flex items-center pointer-events-none">
-                <Sparkles className="h-5 w-5 text-[#af2018]" />
+                <Sparkles className="h-5 w-5 text-[#e60000]" />
               </div>
-              <div className="w-full rounded-lg dark:bg-slate-800 dark:border-slate-700 light:bg-slate-100 light:border-slate-200 border py-2 pl-10 pr-4 dark:text-white light:text-slate-900">
-                Ask FinancePro anything about {clientData.name}...
+              <div className="w-full rounded-lg bg-slate-100 border-slate-200 border py-2 pl-10 pr-4 text-slate-900">
+                Ask UBS DialogueIQ anything about {clientData.name}...
               </div>
             </div>
           </div>
@@ -277,7 +267,7 @@ export default function FinanceProDashboard() {
               <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 light:bg-white light:border-slate-200 light:hover:bg-slate-100 bg-transparent"
+                className="rounded-full bg-white border-slate-200 hover:bg-slate-100 bg-transparent"
               >
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="/placeholder-user.jpg" alt="User" />
@@ -286,17 +276,14 @@ export default function FinanceProDashboard() {
                 <span className="sr-only">Toggle user menu</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              className="dark:bg-slate-800 dark:text-white dark:border-slate-700 light:bg-white light:text-slate-900 light:border-slate-200"
-            >
+            <DropdownMenuContent align="end" className="bg-white text-slate-900 border-slate-200">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator className="dark:bg-slate-700 light:bg-slate-200" />
-              <DropdownMenuItem className="dark:hover:bg-slate-700 light:hover:bg-slate-100">Profile</DropdownMenuItem>
-              <DropdownMenuItem className="dark:hover:bg-slate-700 light:hover:bg-slate-100">Settings</DropdownMenuItem>
-              <DropdownMenuItem className="dark:hover:bg-slate-700 light:hover:bg-slate-100">Help</DropdownMenuItem>
-              <DropdownMenuSeparator className="dark:bg-slate-700 light:bg-slate-200" />
-              <DropdownMenuItem className="dark:hover:bg-slate-700 light:hover:bg-slate-100">Logout</DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-slate-200" />
+              <DropdownMenuItem className="hover:bg-slate-100">Profile</DropdownMenuItem>
+              <DropdownMenuItem className="hover:bg-slate-100">Settings</DropdownMenuItem>
+              <DropdownMenuItem className="hover:bg-slate-100">Help</DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-slate-200" />
+              <DropdownMenuItem className="hover:bg-slate-100">Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -323,9 +310,9 @@ export default function FinanceProDashboard() {
         />
       )}
 
-      <div className="flex flex-1 overflow-hidden bg-slate-950">
+      <div className="flex flex-1 overflow-hidden bg-slate-50">
         {/* Sidebar */}
-        <aside className="hidden w-[280px] flex-col border-r border-slate-800 bg-slate-900 md:flex">
+        <aside className="hidden w-[280px] flex-col border-r border-slate-200 bg-white md:flex">
           <div className="p-4">
             <div className="flex items-center justify-between mb-4">
               <DropdownMenu>
@@ -333,31 +320,28 @@ export default function FinanceProDashboard() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="gap-1 dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:hover:bg-slate-700 light:bg-white light:border-slate-200 light:text-slate-900 light:hover:bg-slate-100 bg-transparent"
+                    className="gap-1 bg-white border-slate-200 text-slate-900 hover:bg-slate-100 bg-transparent"
                   >
                     <span>Clients</span>
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align="end"
-                  className="w-[280px] dark:bg-slate-800 dark:border-slate-700 dark:text-white light:bg-white light:text-slate-900 light:border-slate-200"
-                >
+                <DropdownMenuContent align="end" className="w-[280px] bg-white border-slate-200 text-slate-900">
                   <div className="p-2">
                     <Input
                       placeholder="Search clients..."
                       value={clientSearchQuery}
                       onChange={(e) => setClientSearchQuery(e.target.value)}
-                      className="dark:bg-slate-700 dark:border-slate-600 dark:text-white light:bg-white light:border-slate-200 light:text-slate-900"
+                      className="bg-white border-slate-200 text-slate-900"
                     />
                   </div>
-                  <DropdownMenuSeparator className="dark:bg-slate-700 light:bg-slate-200" />
+                  <DropdownMenuSeparator className="bg-slate-200" />
                   <div className="max-h-[200px] overflow-y-auto">
                     {filteredClients.map((client) => (
                       <DropdownMenuItem
                         key={client.id}
                         onClick={() => handleClientChange(client.id)}
-                        className={`${selectedClientId === client.id ? "dark:bg-slate-700 light:bg-slate-100" : ""} dark:hover:bg-slate-700 light:hover:bg-slate-100`}
+                        className={`${selectedClientId === client.id ? "bg-slate-100" : ""} hover:bg-slate-100`}
                       >
                         <div className="flex items-center">
                           <Avatar className="h-6 w-6 mr-2">
@@ -375,10 +359,10 @@ export default function FinanceProDashboard() {
 
             <ClientInfo client={clientData} />
 
-            <Separator className="my-4 bg-slate-800" />
+            <Separator className="my-4 bg-slate-200" />
 
             <div className="space-y-2">
-              <h3 className="text-sm font-medium text-slate-400 mb-3">Last Conversations</h3>
+              <h3 className="text-sm font-medium text-slate-600 mb-3">Last Conversations</h3>
               <div className="space-y-1 max-h-[400px] overflow-y-auto">
                 {clientData.conversations.map((conversation) => (
                   <Button
@@ -386,8 +370,8 @@ export default function FinanceProDashboard() {
                     variant="ghost"
                     className={`w-full justify-start p-3 h-auto ${
                       selectedConversationId === conversation.id
-                        ? "bg-[#af2018] text-white hover:bg-[#8a1a13]"
-                        : "text-slate-400 hover:text-white hover:bg-slate-800"
+                        ? "bg-[#e60000] text-white hover:bg-[#cc0000]"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                     }`}
                     onClick={() => setSelectedConversationId(conversation.id)}
                   >
@@ -414,12 +398,12 @@ export default function FinanceProDashboard() {
         <main className="flex flex-1 flex-col overflow-hidden">
           <div className="flex flex-1 flex-col overflow-hidden">
             {/* Client header for mobile */}
-            <div className="md:hidden p-4 border-b border-slate-800">
+            <div className="md:hidden p-4 border-b border-slate-200">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="w-full justify-between mb-2 bg-slate-800 border-slate-700 text-white"
+                    className="w-full justify-between mb-2 bg-white border-slate-200 text-slate-900"
                   >
                     <div className="flex items-center gap-2">
                       <Avatar className="h-6 w-6">
@@ -431,14 +415,14 @@ export default function FinanceProDashboard() {
                     <ChevronDown className="h-4 w-4 opacity-50" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[calc(100vw-2rem)] bg-slate-800 border-slate-700 text-white">
+                <DropdownMenuContent className="w-[calc(100vw-2rem)] bg-white border-slate-200 text-slate-900">
                   <DropdownMenuLabel>Select Client</DropdownMenuLabel>
-                  <DropdownMenuSeparator className="bg-slate-700" />
+                  <DropdownMenuSeparator className="bg-slate-200" />
                   {filteredClients.map((client) => (
                     <DropdownMenuItem
                       key={client.id}
                       onClick={() => handleClientChange(client.id)}
-                      className={`${selectedClientId === client.id ? "bg-slate-700" : ""} hover:bg-slate-700`}
+                      className={`${selectedClientId === client.id ? "bg-slate-100" : ""} hover:bg-slate-100`}
                     >
                       <div className="flex items-center">
                         <Avatar className="h-6 w-6 mr-2">
@@ -452,39 +436,48 @@ export default function FinanceProDashboard() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <div className="rounded-lg border border-slate-800 bg-slate-900 p-3">
+              <div className="rounded-lg border border-slate-200 bg-white p-3">
                 <div className="space-y-2 text-sm">
                   <div className="grid grid-cols-2 gap-1">
-                    <div className="text-slate-400">Age:</div>
-                    <div className="text-white">{clientData.age}</div>
+                    <div className="text-slate-600">Age:</div>
+                    <div className="text-slate-900">{clientData.age}</div>
                   </div>
                   <div className="grid grid-cols-2 gap-1">
-                    <div className="text-slate-400">Status:</div>
-                    <div className="text-white">{clientData.maritalStatus}</div>
+                    <div className="text-slate-600">Status:</div>
+                    <div className="text-slate-900">{clientData.maritalStatus}</div>
                   </div>
                   <div className="grid grid-cols-2 gap-1">
-                    <div className="text-slate-400">Risk:</div>
-                    <div className="text-white">{clientData.riskProfile}</div>
+                    <div className="text-slate-600">Risk:</div>
+                    <div className="text-slate-900">{clientData.riskProfile}</div>
                   </div>
                   <div className="grid grid-cols-2 gap-1">
-                    <div className="text-slate-400">Last Contact:</div>
-                    <div className="text-white">{new Date(clientData.lastContact).toLocaleDateString()}</div>
+                    <div className="text-slate-600">Last Contact:</div>
+                    <div className="text-slate-900">{new Date(clientData.lastContact).toLocaleDateString()}</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Mobile tabs */}
-            <div className="md:hidden p-2 border-b border-slate-800 bg-slate-900">
+            <div className="md:hidden p-2 border-b border-slate-200 bg-white">
               <Tabs defaultValue="insights" onValueChange={setActiveTab}>
-                <TabsList className="grid grid-cols-3 w-full bg-slate-800">
-                  <TabsTrigger value="insights" className="data-[state=active]:bg-[#af2018]">
+                <TabsList className="grid grid-cols-3 w-full bg-slate-100">
+                  <TabsTrigger
+                    value="insights"
+                    className="data-[state=active]:bg-[#e60000] data-[state=active]:text-white"
+                  >
                     Insights
                   </TabsTrigger>
-                  <TabsTrigger value="portfolio" className="data-[state=active]:bg-[#af2018]">
+                  <TabsTrigger
+                    value="portfolio"
+                    className="data-[state=active]:bg-[#e60000] data-[state=active]:text-white"
+                  >
                     Portfolio
                   </TabsTrigger>
-                  <TabsTrigger value="market" className="data-[state=active]:bg-[#af2018]">
+                  <TabsTrigger
+                    value="market"
+                    className="data-[state=active]:bg-[#e60000] data-[state=active]:text-white"
+                  >
                     Market
                   </TabsTrigger>
                 </TabsList>
@@ -492,11 +485,11 @@ export default function FinanceProDashboard() {
             </div>
 
             {/* Main content area */}
-            <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-slate-950">
+            <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-slate-50">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight text-white">Client Insights</h1>
-                  <p className="text-slate-400">
+                  <h1 className="text-2xl font-bold tracking-tight text-slate-900">Client Insights</h1>
+                  <p className="text-slate-600">
                     AI-powered insights for {clientData.name} based on financial data and market conditions
                     {selectedConversation && (
                       <span className="block text-sm mt-1">
@@ -508,7 +501,61 @@ export default function FinanceProDashboard() {
                 </div>
               </div>
 
-              {/* New fixed row with three boxes - darker styling */}
+              <div className="mb-6">
+                <Card className="bg-white border-slate-200 text-slate-900 shadow-md">
+                  <CardHeader className="pb-4 border-b border-slate-200">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle className="text-lg text-slate-900">AI Transcript Summary</CardTitle>
+                        <CardDescription className="text-slate-600">
+                          {selectedConversation
+                            ? `Summary from ${selectedConversation.title} on ${new Date(selectedConversation.date).toLocaleDateString()}`
+                            : "Select a conversation to view AI-generated summary"}
+                        </CardDescription>
+                      </div>
+                      {selectedConversation && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="bg-white border-slate-200 text-slate-900 hover:bg-slate-100"
+                        >
+                          View Full Transcript
+                        </Button>
+                      )}
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-4">
+                    {selectedConversation ? (
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-2 text-sm text-slate-600">
+                          {getConversationIcon(selectedConversation.type)}
+                          <span className="capitalize">{selectedConversation.type}</span>
+                          <span>•</span>
+                          <Clock className="h-4 w-4" />
+                          <span>{selectedConversation.duration}</span>
+                        </div>
+                        <p className="text-slate-800 leading-relaxed">{selectedConversation.summary}</p>
+                        <div className="pt-2 border-t border-slate-200">
+                          <h4 className="text-sm font-medium text-[#e60000] mb-2">Key Discussion Points:</h4>
+                          <ul className="text-sm text-slate-700 space-y-1">
+                            <li>• Portfolio performance and rebalancing strategy</li>
+                            <li>• Risk assessment and investment timeline</li>
+                            <li>• Tax optimization opportunities</li>
+                            <li>• Future planning and goal alignment</li>
+                          </ul>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="text-center py-8 text-slate-600">
+                        <MessageSquare className="h-12 w-12 mx-auto mb-3 opacity-50" />
+                        <p>Select a conversation from the sidebar to view the AI-generated summary and insights.</p>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Three boxes row - now positioned below AI Transcript Summary */}
               <div className="grid gap-4 mb-6 md:grid-cols-3">
                 {/* Box 1: Detailed Customer Info */}
                 <DetailedCustomerInfo
@@ -519,52 +566,52 @@ export default function FinanceProDashboard() {
                 />
 
                 {/* Box 2: Calendar */}
-                <Card className="bg-slate-900 border-slate-800 text-white shadow-md flex flex-col">
-                  <CardHeader className="pb-2 border-b border-slate-800">
+                <Card className="bg-white border-slate-200 text-slate-900 shadow-md flex flex-col">
+                  <CardHeader className="pb-2 border-b border-slate-200">
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle className="text-base text-white">Calendar</CardTitle>
-                        <CardDescription className="text-slate-400">Recent and upcoming interactions</CardDescription>
+                        <CardTitle className="text-base text-slate-900">Calendar</CardTitle>
+                        <CardDescription className="text-slate-600">Recent and upcoming interactions</CardDescription>
                       </div>
                     </div>
                   </CardHeader>
                   <CardContent className="pt-3 px-3 flex-1">
                     <div className="space-y-3">
                       <div>
-                        <h4 className="text-sm font-medium mb-2 text-[#af2018]">Recent Interactions</h4>
+                        <h4 className="text-sm font-medium mb-2 text-[#e60000]">Recent Interactions</h4>
                         <div className="space-y-3">
                           <div className="flex items-start gap-2">
-                            <Calendar className="h-4 w-4 text-slate-400 mt-0.5 flex-shrink-0" />
+                            <Calendar className="h-4 w-4 text-slate-600 mt-0.5 flex-shrink-0" />
                             <div>
-                              <p className="text-sm font-medium text-white">
+                              <p className="text-sm font-medium text-slate-900">
                                 {new Date(2025, 2, 20).toLocaleDateString()}
                               </p>
-                              <p className="text-xs text-slate-400">{clientData.recentActivity}</p>
+                              <p className="text-xs text-slate-600">{clientData.recentActivity}</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-2">
-                            <Calendar className="h-4 w-4 text-slate-400 mt-0.5 flex-shrink-0" />
+                            <Calendar className="h-4 w-4 text-slate-600 mt-0.5 flex-shrink-0" />
                             <div>
-                              <p className="text-sm font-medium text-white">
+                              <p className="text-sm font-medium text-slate-900">
                                 {new Date(2025, 2, 6).toLocaleDateString()}
                               </p>
-                              <p className="text-xs text-slate-400">Quarterly portfolio review call</p>
+                              <p className="text-xs text-slate-600">Quarterly portfolio review call</p>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                      <Separator className="bg-slate-800" />
+                      <Separator className="bg-slate-200" />
 
                       <div>
-                        <h4 className="text-sm font-medium mb-2 text-[#af2018]">Upcoming Meetings</h4>
+                        <h4 className="text-sm font-medium mb-2 text-[#e60000]">Upcoming Meetings</h4>
                         <div className="space-y-3">
                           {clientData.upcomingEvents.slice(0, 2).map((event, index) => (
                             <div key={index} className="flex items-start gap-2">
-                              <Calendar className="h-4 w-4 text-[#af2018] mt-0.5 flex-shrink-0" />
+                              <Calendar className="h-4 w-4 text-[#e60000] mt-0.5 flex-shrink-0" />
                               <div>
-                                <p className="text-sm font-medium text-white">{event.date}</p>
-                                <p className="text-xs text-slate-400">{event.title}</p>
+                                <p className="text-sm font-medium text-slate-900">{event.date}</p>
+                                <p className="text-xs text-slate-600">{event.title}</p>
                               </div>
                             </div>
                           ))}
@@ -576,7 +623,7 @@ export default function FinanceProDashboard() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-full bg-slate-800 border-slate-700 text-white hover:bg-slate-700"
+                      className="w-full bg-white border-slate-200 text-slate-900 hover:bg-slate-100"
                       onClick={() => setShowMeetingScheduler(true)}
                     >
                       Schedule Meeting
@@ -591,60 +638,6 @@ export default function FinanceProDashboard() {
                   onToggleEnlarge={() => toggleEnlargeBox("actions")}
                   onActionClick={handleActionButtonClick}
                 />
-              </div>
-
-              <div className="mb-6">
-                <Card className="bg-slate-900 border-slate-800 text-white shadow-md">
-                  <CardHeader className="pb-4 border-b border-slate-800">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <CardTitle className="text-lg text-white">AI Transcript Summary</CardTitle>
-                        <CardDescription className="text-slate-400">
-                          {selectedConversation
-                            ? `Summary from ${selectedConversation.title} on ${new Date(selectedConversation.date).toLocaleDateString()}`
-                            : "Select a conversation to view AI-generated summary"}
-                        </CardDescription>
-                      </div>
-                      {selectedConversation && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="bg-slate-800 border-slate-700 text-white hover:bg-slate-700"
-                        >
-                          View Full Transcript
-                        </Button>
-                      )}
-                    </div>
-                  </CardHeader>
-                  <CardContent className="pt-4">
-                    {selectedConversation ? (
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-2 text-sm text-slate-400">
-                          {getConversationIcon(selectedConversation.type)}
-                          <span className="capitalize">{selectedConversation.type}</span>
-                          <span>•</span>
-                          <Clock className="h-4 w-4" />
-                          <span>{selectedConversation.duration}</span>
-                        </div>
-                        <p className="text-slate-200 leading-relaxed">{selectedConversation.summary}</p>
-                        <div className="pt-2 border-t border-slate-800">
-                          <h4 className="text-sm font-medium text-[#af2018] mb-2">Key Discussion Points:</h4>
-                          <ul className="text-sm text-slate-300 space-y-1">
-                            <li>• Portfolio performance and rebalancing strategy</li>
-                            <li>• Risk assessment and investment timeline</li>
-                            <li>• Tax optimization opportunities</li>
-                            <li>• Future planning and goal alignment</li>
-                          </ul>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="text-center py-8 text-slate-400">
-                        <MessageSquare className="h-12 w-12 mx-auto mb-3 opacity-50" />
-                        <p>Select a conversation from the sidebar to view the AI-generated summary and insights.</p>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
               </div>
             </div>
           </div>

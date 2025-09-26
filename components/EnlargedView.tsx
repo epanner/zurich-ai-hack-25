@@ -46,14 +46,14 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
             <div className="space-y-6">
               <div className="flex items-start gap-6">
                 <Avatar className="h-24 w-24">
-                  <AvatarImage src={client.avatar} alt={client.name} />
+                  <AvatarImage src={client.avatar || "/placeholder.svg"} alt={client.name} />
                   <AvatarFallback className="text-2xl">{client.initials}</AvatarFallback>
                 </Avatar>
                 <div>
                   <h3 className="text-2xl font-bold dark:text-white light:text-slate-900">{client.name}</h3>
                   <p className="text-lg dark:text-slate-400 light:text-slate-500">{client.email}</p>
                   <div className="mt-2 flex flex-wrap gap-2">
-                    <Badge className="dark:bg-[#af2018] dark:text-white light:bg-[#af2018] light:text-white">
+                    <Badge className="dark:bg-[#e60000] dark:text-white light:bg-[#e60000] light:text-white">
                       {client.riskProfile}
                     </Badge>
                     <Badge className="dark:bg-blue-900 dark:text-blue-100 light:bg-blue-100 light:text-blue-800">
@@ -68,7 +68,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-[#af2018]">Professional Background</h4>
+                  <h4 className="text-lg font-semibold text-[#e60000]">Professional Background</h4>
                   <div className="rounded-lg dark:bg-slate-800 light:bg-slate-100 p-4 space-y-3">
                     <div className="grid grid-cols-2 gap-2">
                       <div className="dark:text-slate-400 light:text-slate-500">Occupation:</div>
@@ -106,7 +106,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                     </div>
                   </div>
 
-                  <h4 className="text-lg font-semibold text-[#af2018]">Family & Personal</h4>
+                  <h4 className="text-lg font-semibold text-[#e60000]">Family & Personal</h4>
                   <div className="rounded-lg dark:bg-slate-800 light:bg-slate-100 p-4 space-y-3">
                     <div className="grid grid-cols-2 gap-2">
                       <div className="dark:text-slate-400 light:text-slate-500">Marital Status:</div>
@@ -136,7 +136,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-[#af2018]">Financial Preferences</h4>
+                  <h4 className="text-lg font-semibold text-[#e60000]">Financial Preferences</h4>
                   <div className="rounded-lg dark:bg-slate-800 light:bg-slate-100 p-4 space-y-3">
                     <div className="grid grid-cols-2 gap-2">
                       <div className="dark:text-slate-400 light:text-slate-500">Investment Style:</div>
@@ -164,7 +164,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                     </div>
                   </div>
 
-                  <h4 className="text-lg font-semibold text-[#af2018]">Communication Preferences</h4>
+                  <h4 className="text-lg font-semibold text-[#e60000]">Communication Preferences</h4>
                   <div className="rounded-lg dark:bg-slate-800 light:bg-slate-100 p-4 space-y-3">
                     <div className="grid grid-cols-2 gap-2">
                       <div className="dark:text-slate-400 light:text-slate-500">Preferred Contact:</div>
@@ -190,7 +190,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                     </div>
                   </div>
 
-                  <h4 className="text-lg font-semibold text-[#af2018]">Notes & Special Considerations</h4>
+                  <h4 className="text-lg font-semibold text-[#e60000]">Notes & Special Considerations</h4>
                   <div className="rounded-lg dark:bg-slate-800 light:bg-slate-100 p-4">
                     <p className="dark:text-white light:text-slate-900">
                       {client.id === "1"
@@ -205,7 +205,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
 
               <div className="mt-4 flex justify-end">
                 <Button
-                  className="dark:bg-[#af2018] dark:hover:bg-[#8a1a13] light:bg-[#af2018] light:hover:bg-[#8a1a13] text-white"
+                  className="dark:bg-[#e60000] dark:hover:bg-[#cc0000] light:bg-[#e60000] light:hover:bg-[#cc0000] text-white"
                   onClick={() => onActionClick("Generate a comprehensive client profile for " + client.name)}
                 >
                   Generate Full Profile Report
@@ -216,14 +216,14 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
 
           {boxType === "actions" && (
             <div className="space-y-6">
-              <div className="rounded-md bg-[#af2018]/10 border border-[#af2018]/30 p-4">
+              <div className="rounded-md bg-[#e60000]/10 border border-[#e60000]/30 p-4">
                 <h3 className="text-xl font-semibold dark:text-white light:text-slate-900 mb-4">
                   Comprehensive Action Plan
                 </h3>
 
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-lg font-medium text-[#af2018] mb-3">High Priority Actions</h4>
+                    <h4 className="text-lg font-medium text-[#e60000] mb-3">High Priority Actions</h4>
                     <ul className="space-y-4">
                       <li
                         className="flex items-start gap-3 p-3 rounded-md bg-slate-800 hover:bg-slate-700 cursor-pointer transition-colors"
@@ -234,7 +234,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                           onClose()
                         }}
                       >
-                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#af2018] flex items-center justify-center">
+                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#e60000] flex items-center justify-center">
                           <span className="text-xs font-bold text-white">1</span>
                         </div>
                         <div className="flex-1">
@@ -245,11 +245,11 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                             risk and potentially improve risk-adjusted returns.
                           </p>
                           <div className="mt-2 flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Estimated impact: Medium</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Recommended timeline: Within 7 days</span>
                           </div>
                         </div>
@@ -264,7 +264,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                           onClose()
                         }}
                       >
-                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#af2018] flex items-center justify-center">
+                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#e60000] flex items-center justify-center">
                           <span className="text-xs font-bold text-white">2</span>
                         </div>
                         <div className="flex-1">
@@ -275,11 +275,11 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                             approximately {client.taxSavingsOpportunity} in taxes this year.
                           </p>
                           <div className="mt-2 flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Estimated impact: High</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Recommended timeline: Before December 15</span>
                           </div>
                         </div>
@@ -288,7 +288,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-medium text-[#af2018] mb-3">Meeting Preparation</h4>
+                    <h4 className="text-lg font-medium text-[#e60000] mb-3">Meeting Preparation</h4>
                     <ul className="space-y-4">
                       <li
                         className="flex items-start gap-3 p-3 rounded-md bg-slate-800 hover:bg-slate-700 cursor-pointer transition-colors"
@@ -299,7 +299,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                           onClose()
                         }}
                       >
-                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#af2018] flex items-center justify-center">
+                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#e60000] flex items-center justify-center">
                           <span className="text-xs font-bold text-white">3</span>
                         </div>
                         <div className="flex-1">
@@ -312,11 +312,11 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                             to discuss retirement planning progress and tax strategies.
                           </p>
                           <div className="mt-2 flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Estimated preparation time: 45 minutes</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Recommended timeline: 2 days before meeting</span>
                           </div>
                         </div>
@@ -325,7 +325,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-medium text-[#af2018] mb-3">Documentation Updates</h4>
+                    <h4 className="text-lg font-medium text-[#e60000] mb-3">Documentation Updates</h4>
                     <ul className="space-y-4">
                       <li
                         className="flex items-start gap-3 p-3 rounded-md bg-slate-800 hover:bg-slate-700 cursor-pointer transition-colors"
@@ -336,7 +336,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                           onClose()
                         }}
                       >
-                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#af2018] flex items-center justify-center">
+                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#e60000] flex items-center justify-center">
                           <span className="text-xs font-bold text-white">4</span>
                         </div>
                         <div className="flex-1">
@@ -347,11 +347,11 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                             with current goals and market conditions.
                           </p>
                           <div className="mt-2 flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Estimated impact: Medium</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Recommended timeline: Within 14 days</span>
                           </div>
                         </div>
@@ -366,7 +366,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                           onClose()
                         }}
                       >
-                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#af2018] flex items-center justify-center">
+                        <div className="mt-0.5 h-6 w-6 flex-shrink-0 rounded-full bg-[#e60000] flex items-center justify-center">
                           <span className="text-xs font-bold text-white">5</span>
                         </div>
                         <div className="flex-1">
@@ -376,11 +376,11 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
                             goals, time horizon, and market conditions. Current statement is 12 months old.
                           </p>
                           <div className="mt-2 flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Estimated impact: Low</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-[#af2018]"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#e60000]"></div>
                             <span className="text-xs text-slate-400">Recommended timeline: Within 30 days</span>
                           </div>
                         </div>
@@ -392,7 +392,7 @@ export function EnlargedView({ boxType, client, onClose, onActionClick }: Enlarg
 
               <div className="mt-4 flex justify-end">
                 <Button
-                  className="dark:bg-[#af2018] dark:hover:bg-[#8a1a13] light:bg-[#af2018] light:hover:bg-[#8a1a13] text-white"
+                  className="dark:bg-[#e60000] dark:hover:bg-[#cc0000] light:bg-[#e60000] light:hover:bg-[#cc0000] text-white"
                   onClick={() => {
                     onActionClick(
                       `Generate a comprehensive action plan for ${client.name} with prioritized tasks, implementation timeline, and expected outcomes`,

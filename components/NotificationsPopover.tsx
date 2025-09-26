@@ -60,12 +60,12 @@ export function NotificationsPopover() {
         <Button
           variant="outline"
           size="icon"
-          className="relative dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:hover:bg-slate-700 light:bg-white light:border-slate-200 light:text-slate-900 light:hover:bg-slate-100"
+          className="relative dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:hover:bg-slate-700 light:bg-white light:border-slate-200 light:text-slate-900 light:hover:bg-slate-100 bg-transparent"
         >
           <Bell className="h-4 w-4" />
           <span className="sr-only">Notifications</span>
           {unreadCount > 0 && (
-            <Badge className="absolute -right-1 -top-1 h-4 w-4 rounded-full p-0 text-[10px] bg-[#af2018]">
+            <Badge className="absolute -right-1 -top-1 h-4 w-4 rounded-full p-0 text-[10px] bg-[#e60000]">
               {unreadCount}
             </Badge>
           )}
@@ -121,7 +121,7 @@ export function NotificationsPopover() {
                       <p className="text-xs text-slate-500 mt-1">{notification.time}</p>
                     </div>
                   </div>
-                  {!notification.read && <div className="absolute right-4 top-4 h-2 w-2 rounded-full bg-[#af2018]" />}
+                  {!notification.read && <div className="absolute right-4 top-4 h-2 w-2 rounded-full bg-[#e60000]" />}
                 </div>
               ))}
             </div>

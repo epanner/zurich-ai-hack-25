@@ -50,7 +50,7 @@ const AIMessage = ({ message, onActionClick }: AIMessageProps) => {
       <div
         className={`inline-block rounded-lg px-4 py-3 text-sm max-w-[80%] ${
           message.type === "user" || message.type === "preset"
-            ? "bg-[#af2018] text-white"
+            ? "bg-[#e60000] text-white"
             : message.type === "insight"
               ? "bg-slate-800 border border-slate-700"
               : "bg-slate-800"
@@ -58,11 +58,11 @@ const AIMessage = ({ message, onActionClick }: AIMessageProps) => {
       >
         {message.type === "insight" && message.insightType && (
           <div className="flex items-center gap-2 mb-2">
-            {message.insightType === "portfolio" && <PieChart className="h-4 w-4 text-[#af2018]" />}
+            {message.insightType === "portfolio" && <PieChart className="h-4 w-4 text-[#e60000]" />}
             {message.insightType === "risk" && <ShieldAlert className="h-4 w-4 text-amber-500" />}
             {message.insightType === "tax" && <DollarSign className="h-4 w-4 text-emerald-500" />}
             {message.insightType === "client" && <User className="h-4 w-4 text-blue-500" />}
-            {message.insightType === "market" && <TrendingUp className="h-4 w-4 text-[#af2018]" />}
+            {message.insightType === "market" && <TrendingUp className="h-4 w-4 text-[#e60000]" />}
             {message.insightType === "action" && <Calendar className="h-4 w-4 text-orange-500" />}
             <span className="font-medium">
               {message.insightType === "portfolio" && "Portfolio Insight"}
@@ -88,7 +88,7 @@ const AIMessage = ({ message, onActionClick }: AIMessageProps) => {
                       <div
                         className={`h-2 w-2 rounded-full ${
                           index === 0
-                            ? "bg-[#af2018]"
+                            ? "bg-[#e60000]"
                             : index === 1
                               ? "bg-blue-500"
                               : index === 2
@@ -115,7 +115,7 @@ const AIMessage = ({ message, onActionClick }: AIMessageProps) => {
                 size="sm"
                 variant={action.action.includes("view") ? "outline" : "default"}
                 onClick={() => onActionClick(action.action)}
-                className="bg-[#af2018] hover:bg-[#8a1a13] text-white border-[#af2018]"
+                className="bg-[#e60000] hover:bg-[#cc0000] text-white border-[#e60000]"
               >
                 {action.label}
               </Button>
@@ -189,8 +189,8 @@ export function AIChat({
     <div className="fixed inset-0 z-50 flex flex-col bg-slate-900 text-white">
       <div className="flex items-center justify-between border-b border-slate-700 p-4">
         <div className="flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-[#af2018]" />
-          <h2 className="text-lg font-semibold">FinancePro Assistant</h2>
+          <Sparkles className="h-5 w-5 text-[#e60000]" />
+          <h2 className="text-lg font-semibold">UBS DialogueIQ Assistant</h2>
         </div>
         <Button variant="ghost" size="icon" onClick={toggleAIChat} className="text-white hover:bg-slate-800">
           <X className="h-5 w-5" />
@@ -209,7 +209,7 @@ export function AIChat({
               variant="outline"
               size="sm"
               onClick={resetChat}
-              className="dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:hover:bg-slate-700 light:bg-white light:border-slate-200 light:text-slate-900 light:hover:bg-slate-100"
+              className="dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:hover:bg-slate-700 light:bg-white light:border-slate-200 light:text-slate-900 light:hover:bg-slate-100 bg-transparent"
             >
               <ArrowUp className="h-4 w-4 mr-2" />
               Start Over
@@ -289,7 +289,7 @@ export function AIChat({
           <Button
             variant="ghost"
             size="icon"
-            className="absolute right-1 top-1/2 -translate-y-1/2 text-[#af2018] hover:bg-slate-700 hover:text-[#ff6b61]"
+            className="absolute right-1 top-1/2 -translate-y-1/2 text-[#e60000] hover:bg-slate-700 hover:text-[#ff6b61]"
             onClick={handleSubmitMessage}
             disabled={!inputValue.trim() || isLoading}
           >

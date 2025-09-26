@@ -1,5 +1,5 @@
-import FinanceProDashboard from "@/components/wealth-ai-dashboard"
+import UBSDialogueIQDashboard from "@/components/wealth-ai-dashboard"
 
 export default function Page() {
-  return <FinanceProDashboard />
+  return <UBSDialogueIQDashboard />
 }

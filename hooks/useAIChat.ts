@@ -23,7 +23,7 @@ export function useAIChat(clientData: Client) {
         {
           id: "welcome",
           type: "ai",
-          content: `Hello, I'm your FinancePro assistant. I can help you analyze ${clientData.name}'s portfolio, risk profile, tax situation, or retirement planning. Choose a preset below or ask me anything specific.`,
+          content: `Hello, I'm your UBS DialogueIQ assistant. I can help you analyze ${clientData.name}'s portfolio, risk profile, tax situation, or retirement planning. Choose a preset below or ask me anything specific.`,
           timestamp: new Date(),
         },
       ])
@@ -46,7 +46,7 @@ export function useAIChat(clientData: Client) {
       {
         id: "welcome",
         type: "ai",
-        content: `Hello, I'm your FinancePro assistant. I can help you analyze ${clientData.name}'s portfolio, risk profile, tax situation, or retirement planning. Choose a preset below or ask me anything specific.`,
+        content: `Hello, I'm your UBS DialogueIQ assistant. I can help you analyze ${clientData.name}'s portfolio, risk profile, tax situation, or retirement planning. Choose a preset below or ask me anything specific.`,
         timestamp: new Date(),
       },
     ])
